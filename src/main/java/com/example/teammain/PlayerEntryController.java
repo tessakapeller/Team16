@@ -6,26 +6,30 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
 public class PlayerEntryController {
     private ObservableList<Player> players = FXCollections.observableArrayList();
+    //public
 
     @FXML
     public void initTable(TableView<Player> tableView) {
-        TableColumn<Player, Integer> idColumn = new TableColumn<>("ID");
-        idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject()); // Updated line
-        TableColumn<Player, String> nameColumn = new TableColumn<>("Name");
-        nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty()); // Updated line
-        idColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
-        nameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.7));
-        tableView.getColumns().setAll(idColumn, nameColumn);
+        TableColumn<Player, String> idColumn = new TableColumn<>("ID");
+        idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty()); // Updated line
+        TableColumn<Player, String> firstNameColumn = new TableColumn<>("FirstName");
+        firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty()); // Updated line
+        TableColumn<Player, String> lastNameColumn = new TableColumn<>("LastName");
+        lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty()); // Updated line
+        TableColumn<Player, String> codeNameColumn = new TableColumn<>("CodeName");
+        codeNameColumn.setCellValueFactory(cellData -> cellData.getValue().codeNameProperty()); // Updated line
+        idColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.1));
+        firstNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
+        lastNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
+        codeNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
+        tableView.getColumns().setAll(idColumn, firstNameColumn, lastNameColumn, codeNameColumn);
         tableView.setItems(players);
     }
 
@@ -39,8 +43,28 @@ public class PlayerEntryController {
 //        }
 //    }
 
-    public void addPlayer(String name) {
-        players.add(new Player(players.size() + 1, name));
+    public boolean addPlayer(String id) {
+
+        //check the database
+        if(false/*player is not in db, pop up box for fname, lname, codename*/)
+        {
+            players.add(new Player(id, "firstName", "lastName", "codename"));
+            //
+            return false;
+        }
+        else {
+            players.add(new Player(id));
+            return true;
+
+        }
+    }
+
+    public void updateFirstName(String firstName)
+    {
+        Player temp = players.get(players.size() - 1);
+        temp.setFirstName(firstName);
+        players.set((players.size() - 1), temp);
+
     }
 
     public ObservableList<Player> getPlayers() {
@@ -55,27 +79,39 @@ public class PlayerEntryController {
 }
 
 class Player {
-    private final SimpleIntegerProperty id;
-    private final SimpleStringProperty name;
+    private final SimpleStringProperty id;
+    private SimpleStringProperty firstName;
+    private SimpleStringProperty lastName;
+    private SimpleStringProperty codeName;
 
-    public Player(int id, String name) {
-        this.id = new SimpleIntegerProperty(id);
-        this.name = new SimpleStringProperty(name);
+    public Player(String id, String firstname, String lastname, String codename) {
+        this.id = new SimpleStringProperty(id);
+        this.firstName = new SimpleStringProperty(firstname);
+        this.lastName = new SimpleStringProperty(lastname);
+        this.codeName = new SimpleStringProperty(codename);
+    }
+    public Player(String id) {
+        this.id = new SimpleStringProperty(id);
+        this.firstName = new SimpleStringProperty("");
+        this.lastName = new SimpleStringProperty("");
+        this.codeName = new SimpleStringProperty("");
     }
 
-    public int getId() {
-        return id.get();
-    }
-
-    public String getName() {
-        return name.get();
-    }
-    public SimpleIntegerProperty idProperty() {
+    public SimpleStringProperty idProperty() {
         return id;
     }
-
-    public SimpleStringProperty nameProperty() {
-        return name;
+    public SimpleStringProperty firstNameProperty() {
+        return firstName;
     }
+    public SimpleStringProperty lastNameProperty() {
+        return lastName;
+    }
+    public SimpleStringProperty codeNameProperty() {
+        return codeName;
+    }
+    public void setFirstName(String firstname) {
+        this.firstName = new SimpleStringProperty(firstname);
+    }
+
 
 }
