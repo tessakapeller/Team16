@@ -5,7 +5,7 @@ import java.io.*;
 
 class SocketServer {
     public static void main(String[] args) {
-        int sum = 0;
+        int sum = 1;
 
         try (ServerSocket serverSocket = new ServerSocket(7501)) {
             System.out.println("Server started. Waiting for client connection...");
