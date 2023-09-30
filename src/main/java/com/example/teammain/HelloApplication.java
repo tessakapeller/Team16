@@ -1,5 +1,6 @@
 package com.example.teammain;
 
+import com.example.teammain.DBUtils.DBMethods;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -34,6 +35,11 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+        Player player = new Player("2");
+        player.setFirstName("Jayce");
+        player.setLastName("Hollister");
+        player.setCodeName("Owl");
+        DBMethods.insert(player);
         launch();
         //MainController.firstNameField.setVisible(false);
     }
