@@ -35,11 +35,6 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        Player player = new Player("2");
-        player.setFirstName("Jayce");
-        player.setLastName("Hollister");
-        player.setCodeName("Owl");
-        DBMethods.insert(player);
         launch();
         //MainController.firstNameField.setVisible(false);
     }
