@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.teammain.MainController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="550.0" layoutX="143.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" width="445.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff361f" height="550.0" layoutX="759.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" width="445.0" />
+        <Text fill="WHITE" layoutX="519.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Entry Screen" wrappingWidth="312.13671875">
+         <font>
+            <Font size="32.0" />
+         </font></Text>
+        <Text fill="#492dff" layoutX="254.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blue Team" textAlignment="CENTER" wrappingWidth="223.13671875">
+            <font>
+                <Font name="System Bold Italic" size="38.0" />
+            </font>
+        </Text>
+        <Text fill="#ff2e2e" layoutX="887.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Team" textAlignment="CENTER" wrappingWidth="189.13671875">
+            <font>
+                <Font name="System Bold Italic" size="38.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="99.0" layoutY="698.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F1 to Edit Game" underline="true" wrappingWidth="147.1328125">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="247.0" layoutY="698.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F2 Game Parameters" underline="true" wrappingWidth="189.13671875">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="624.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="V">
+            <font>
+                <Font name="System Bold Italic" size="69.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="674.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="S">
+            <font>
+                <Font name="System Bold Italic" size="69.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="436.0" layoutY="698.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F12 Clear Game" underline="true" wrappingWidth="189.13671875">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="686.0" layoutY="717.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Starts In ..." wrappingWidth="445.0">
+            <font>
+                <Font name="System Italic" size="45.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="1062.0" layoutY="717.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="158.0">
+            <font>
+                <Font name="System Italic" size="45.0" />
+            </font>
+        </Text>
+      <TextField fx:id="playerIDField" layoutX="601.0" layoutY="159.0" onAction="#handleAddPlayer" promptText="Enter your two-digit ID" />
+      <TableView fx:id="blueTeamTableView" layoutX="161.0" layoutY="142.0" prefHeight="484.0" prefWidth="409.0">
+        <columns>
+          <TableColumn fx:id="blueIdColumn" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="blueNameColumn" minWidth="100.0" prefWidth="333.0" text="Name" />
+        </columns>
+      </TableView>
+      <TableView fx:id="redTeamTableView" layoutX="776.0" layoutY="134.0" prefHeight="484.0" prefWidth="409.0">
+         <columns>
+            <TableColumn fx:id="redIdColumn" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="redNameColumn" minWidth="100.0" prefWidth="333.0" text="Name" />
+         </columns>
+      </TableView>
+      <ChoiceBox fx:id="teamChoiceBox" layoutX="600.0" layoutY="127.0" prefWidth="150.0" value="Blue">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Blue" />
+                <String fx:value="Red" />
+            </FXCollections>
+        </items>
+      </ChoiceBox>
+      <Button fx:id="resetButton" layoutX="647.0" layoutY="626.0" mnemonicParsing="false" onAction="#handleResetButton" text="Reset" />
+      <TextField fx:id="firstNameField" layoutX="601.0" layoutY="193.0" onAction="#handleAddFirstName" promptText="Enter Your First Name" />
+      <TextField fx:id="lastNameField" layoutX="601.0" layoutY="224.0" onAction="#handleAddLastName" promptText="Enter Your Last Name" />
+      <TextField fx:id="codeNameField" layoutX="601.0" layoutY="257.0" onAction="#handleAddCodeName" promptText="Enter Your Code Name" />
+      <TextField fx:id="equipCodeField" layoutX="599.0" layoutY="292.0" onAction="#handleAddEquipCode" promptText="Enter Equipment Code" />
+
+    </children>
+</AnchorPane>
