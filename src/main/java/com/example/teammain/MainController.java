@@ -17,6 +17,15 @@ public class MainController {
     public TextField firstNameField;
 
     @FXML
+    public TextField lastNameField;
+
+    @FXML
+    public TextField codeNameField;
+
+    @FXML
+    public TextField equipCodeField;
+
+    @FXML
     private TableView<Player> redTeamTableView;
 
     @FXML
@@ -27,6 +36,9 @@ public class MainController {
 
     public void initialize() {
         firstNameField.setVisible(false);
+        lastNameField.setVisible(false);
+        codeNameField.setVisible(false);
+        equipCodeField.setVisible(false);
         redTeamController.initTable(redTeamTableView);
         blueTeamController.initTable(blueTeamTableView);
     }
@@ -48,7 +60,7 @@ public class MainController {
             } else if ("Red".equals(team)) {
                 setIDVisible = redTeamController.addPlayer(playerID);
             }
-            if (setIDVisible == true) {
+            if (setIDVisible) {
                 playerIDField.setVisible(false);
                 firstNameField.setVisible(true);
             } else {
@@ -59,20 +71,45 @@ public class MainController {
 
     }
 
-    public void handleAddFirstName(ActionEvent event)
-    {
+    public void handleAddFirstName(ActionEvent event) {
         System.out.println("test");
         String team = teamChoiceBox.getValue();
+        boolean setIDVisible = true;
         String firstName = firstNameField.getText();
-         if (!firstName.isEmpty())
-        {
+        if (!firstName.isEmpty()) {
             if ("Blue".equals(team)) {
                 blueTeamController.updateFirstName(firstName);
             } else if ("Red".equals(team)) {
                 redTeamController.updateFirstName(firstName);
             }
         }
+        firstNameField.setVisible(false);
+        lastNameField.setVisible(true);
+        firstNameField.clear();
     }
+
+    public void handleAddLastName(ActionEvent event)
+    {
+        //
+        lastNameField.setVisible(false);
+        codeNameField.setVisible(true);
+        lastNameField.clear();
+    }
+    public void handleAddCodeName(ActionEvent event)
+    {
+        //
+        codeNameField.setVisible(false);
+        equipCodeField.setVisible(true);
+        codeNameField.clear();
+    }
+    public void handleAddEquipCode(ActionEvent event)
+    {
+        //
+        equipCodeField.setVisible(false);
+        playerIDField.setVisible(true);
+        equipCodeField.clear();
+    }
+
 
     @FXML
     private void handleResetButton(ActionEvent event) {

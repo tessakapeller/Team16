@@ -88,9 +88,9 @@
       </ChoiceBox>
       <Button fx:id="resetButton" layoutX="647.0" layoutY="626.0" mnemonicParsing="false" onAction="#handleResetButton" text="Reset" />
       <TextField fx:id="firstNameField" layoutX="601.0" layoutY="193.0" onAction="#handleAddFirstName" promptText="Enter Your First Name" />
-      <TextField fx:id="lastNameField" layoutX="601.0" layoutY="224.0" />
-      <TextField fx:id="codeNameField" layoutX="601.0" layoutY="257.0" />
-      <TextField fx:id="equipCodeField" layoutX="601.0" layoutY="300.0" />
+      <TextField fx:id="lastNameField" layoutX="601.0" layoutY="224.0" onAction="#handleAddLastName" promptText="Enter Your Last Name" />
+      <TextField fx:id="codeNameField" layoutX="601.0" layoutY="257.0" onAction="#handleAddCodeName" promptText="Enter Your Code Name" />
+      <TextField fx:id="equipCodeField" layoutX="599.0" layoutY="292.0" onAction="#handleAddEquipCode" promptText="Enter Equipment Code" />
 
     </children>
 </AnchorPane>
