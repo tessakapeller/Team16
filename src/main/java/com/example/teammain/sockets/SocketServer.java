@@ -7,7 +7,7 @@ class SocketServer {
     public static void main(String[] args) {
         int sum = 1;
 
-        try (ServerSocket serverSocket = new ServerSocket(7501)) {
+        try (ServerSocket serverSocket = new ServerSocket(7500)){
             System.out.println("Server started. Waiting for client connection...");
 
             try (Socket clientSocket = serverSocket.accept();

@@ -140,5 +140,14 @@ public class MainController {
         redTeamController.getPlayers().clear();
         blueTeamController.getPlayers().clear();
         teamChoiceBox.setValue("Blue"); // if you want to reset it to a default team
+        playerIDField.setVisible(true);
+        firstNameField.setVisible(false);
+        lastNameField.setVisible(false);
+        codeNameField.setVisible(false);
+        playerIDField.clear();
+        firstNameField.clear();
+        lastNameField.clear();
+        codeNameField.clear();
+
     }
 }

@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
         stage.setTitle("Game Starting...");
         stage.show();
 
-        PauseTransition pause = new PauseTransition(Duration.seconds(0.5));// set this to 3 when done testing
+        PauseTransition pause = new PauseTransition(Duration.seconds(3));// set this to 3 when done testing
         pause.setOnFinished(event -> {
             // After 3 seconds, switch to PlayerEntry.fxml
             try {
@@ -36,6 +36,5 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         launch();
-        //MainController.firstNameField.setVisible(false);
     }
 }
