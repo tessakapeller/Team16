@@ -1,5 +1,6 @@
 package com.example.teammain;
 
+import com.example.teammain.sockets.SocketClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -64,17 +65,14 @@ public class MainController {
                 playerIDField.setVisible(false);
                 firstNameField.setVisible(true);
             } else {
-                playerIDField.clear();
+                equipCodeField.setVisible(true);
             }
         }
-
-
+        playerIDField.clear();
     }
 
     public void handleAddFirstName(ActionEvent event) {
-        System.out.println("test");
         String team = teamChoiceBox.getValue();
-        boolean setIDVisible = true;
         String firstName = firstNameField.getText();
         if (!firstName.isEmpty()) {
             if ("Blue".equals(team)) {
@@ -82,31 +80,57 @@ public class MainController {
             } else if ("Red".equals(team)) {
                 redTeamController.updateFirstName(firstName);
             }
+            firstNameField.setVisible(false);
+            lastNameField.setVisible(true);
         }
-        firstNameField.setVisible(false);
-        lastNameField.setVisible(true);
         firstNameField.clear();
     }
 
     public void handleAddLastName(ActionEvent event)
     {
-        //
-        lastNameField.setVisible(false);
-        codeNameField.setVisible(true);
+        String team = teamChoiceBox.getValue();
+        String lastname = lastNameField.getText();
+        if (!lastname.isEmpty()) {
+            if ("Blue".equals(team)) {
+                blueTeamController.updateLastName(lastname);
+            } else if ("Red".equals(team)) {
+                redTeamController.updateLastName(lastname);
+            }
+            lastNameField.setVisible(false);
+            codeNameField.setVisible(true);
+        }
         lastNameField.clear();
     }
     public void handleAddCodeName(ActionEvent event)
     {
-        //
-        codeNameField.setVisible(false);
-        equipCodeField.setVisible(true);
+        String team = teamChoiceBox.getValue();
+        String codename = codeNameField.getText();
+        if (!codename.isEmpty()) {
+            if ("Blue".equals(team)) {
+                blueTeamController.updateCodeName(codename);
+            } else if ("Red".equals(team)) {
+                redTeamController.updateCodeName(codename);
+            }
+            codeNameField.setVisible(false);
+            equipCodeField.setVisible(true);
+        }
         codeNameField.clear();
     }
     public void handleAddEquipCode(ActionEvent event)
     {
-        //
-        equipCodeField.setVisible(false);
-        playerIDField.setVisible(true);
+        String team = teamChoiceBox.getValue();
+        String equipmentCode = equipCodeField.getText();
+        if (!equipmentCode.isEmpty()) {
+            if ("Blue".equals(team)) {
+                blueTeamController.updateEquipmentCode(equipmentCode);
+            } else if ("Red".equals(team)) {
+                redTeamController.updateEquipmentCode(equipmentCode);
+            }
+            equipCodeField.setVisible(false);
+            playerIDField.setVisible(true);
+            //will send equipment code to signal 7500 after output, signal isn't set up.
+            SocketClient.sendEquipmentCode(equipmentCode);
+        }
         equipCodeField.clear();
     }
 
