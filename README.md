@@ -6,7 +6,7 @@
   #thanyu-hub - Taisei Hanyu
 
 #how to use app
-  #ensure that you have java, scene builder, and a JDBC driver downloaded 
+  #ensure that you have java, scene builder, and a JDBC driver downloaded(https://jdbc.postgresql.org/) download and import jar file.
   #run helloApplication.java
   #wait for the splash screen to move to player entry screen.
   #enter an id, if the id is in the database the person will be filled into the table then propmt the user to enter an equipment code.
