@@ -134,7 +134,9 @@ public class MainController {
         equipCodeField.clear();
     }
 
-
+    public void resetEntry(){
+        this.handleResetButton(new ActionEvent());
+    }
     @FXML
     private void handleResetButton(ActionEvent event) {
         redTeamController.getPlayers().clear();

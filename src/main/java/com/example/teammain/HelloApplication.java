@@ -5,12 +5,18 @@ import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import com.example.teammain.MainController;
 
 import java.io.IOException;
 import javafx.util.Duration;
 
 public class HelloApplication extends Application {
+
+    static MainController myControllerHandle;
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader gameStartLoader = new FXMLLoader(HelloApplication.class.getResource("/gamestart.fxml"));
@@ -25,8 +31,18 @@ public class HelloApplication extends Application {
             try {
                 FXMLLoader playerEntryLoader = new FXMLLoader(HelloApplication.class.getResource("/PlayerEntry.fxml"));
                 Scene playerEntryScene = new Scene(playerEntryLoader.load());
+                myControllerHandle = (MainController)playerEntryLoader.getController();
+
+                playerEntryScene.setOnKeyPressed((KeyEvent ke) -> { // Create a key event that execute when any key pressed from your keyboard
+                    if (ke.getCode().equals(KeyCode.F12))
+                    {
+//                        System.out.println("pressed F12");
+                        myControllerHandle.resetEntry();
+                    }
+                });
                 stage.setTitle("Hello!");
                 stage.setScene(playerEntryScene);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
