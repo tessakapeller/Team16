@@ -34,7 +34,18 @@ public class HelloApplication extends Application {
                 myControllerHandle = (MainController)playerEntryLoader.getController();
 
                 playerEntryScene.setOnKeyPressed((KeyEvent ke) -> { // Create a key event that execute when any key pressed from your keyboard
-                    myControllerHandle.keyEventHandler(ke);
+                    if (ke.getCode().equals(KeyCode.F5)) {
+                        System.out.println("pressed F5"); //test to make sure press registers
+                        //code for count down timer
+                        PauseTransition pause2 = new PauseTransition(Duration.seconds(3)); //pause to wait while timer
+                        pause2.setOnFinished(event2 ->{
+                            stage.setScene(gameStartScene); //prove that transition works
+                        });
+                        pause2.play();
+                    }
+                    else{
+                        myControllerHandle.keyEventHandler(ke);
+                    }
                 });
                 stage.setTitle("Hello!");
                 stage.setScene(playerEntryScene);
