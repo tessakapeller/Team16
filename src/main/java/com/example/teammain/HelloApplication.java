@@ -34,11 +34,7 @@ public class HelloApplication extends Application {
                 myControllerHandle = (MainController)playerEntryLoader.getController();
 
                 playerEntryScene.setOnKeyPressed((KeyEvent ke) -> { // Create a key event that execute when any key pressed from your keyboard
-                    if (ke.getCode().equals(KeyCode.F12))
-                    {
-//                        System.out.println("pressed F12");
-                        myControllerHandle.resetEntry();
-                    }
+                    myControllerHandle.keyEventHandler(ke);
                 });
                 stage.setTitle("Hello!");
                 stage.setScene(playerEntryScene);

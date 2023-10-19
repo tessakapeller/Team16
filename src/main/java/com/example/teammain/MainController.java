@@ -8,6 +8,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableView;
 import com.example.teammain.PlayerEntryController;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class MainController {
 
@@ -132,6 +134,16 @@ public class MainController {
             SocketClient.sendEquipmentCode(equipmentCode);
         }
         equipCodeField.clear();
+    }
+
+//    Handler for any type of key inputs
+    public void keyEventHandler(KeyEvent ke)
+    {
+        if (ke.getCode().equals(KeyCode.F12))
+        {
+            //System.out.println("pressed F12");
+            this.resetEntry();
+        }
     }
 
     public void resetEntry(){
