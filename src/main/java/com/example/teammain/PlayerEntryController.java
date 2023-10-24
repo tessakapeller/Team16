@@ -33,8 +33,8 @@ public class PlayerEntryController {
     @FXML
     private TableView<Player> blueTeamTableView;
 
-    public static final PlayerEntryTable redTeamController = new PlayerEntryTable();
-    public static final PlayerEntryTable blueTeamController = new PlayerEntryTable();
+    public static PlayerEntryTable redTeamController = new PlayerEntryTable();
+    public static PlayerEntryTable blueTeamController = new PlayerEntryTable();
 
     public void initialize() {
         firstNameField.setVisible(false);

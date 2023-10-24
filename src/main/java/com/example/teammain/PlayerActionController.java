@@ -26,10 +26,18 @@ public class PlayerActionController {
 
     public static final PlayerActionTable currentEvents = new PlayerActionTable();
 
+    public void setParentController()
+    {
+        greenScore.setPlayers(PlayerEntryController.blueTeamController.getPlayers());
+        redScore.setPlayers(PlayerEntryController.redTeamController.getPlayers());
+    }
+
     public void initialize(){
 
-        redScore.actionTables(redTV);
+        setParentController();
         greenScore.actionTables(greenTV);
+        redScore.actionTables(redTV);
+
         //currentEvents.actionTables(currentGameEvents);
 
     }
