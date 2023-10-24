@@ -36,6 +36,8 @@ public class PlayerEntryController {
     public static final PlayerEntryTable redTeamController = new PlayerEntryTable();
     public static final PlayerEntryTable blueTeamController = new PlayerEntryTable();
 
+
+
     public void initialize() {
         firstNameField.setVisible(false);
         lastNameField.setVisible(false);
@@ -163,4 +165,6 @@ public class PlayerEntryController {
         codeNameField.clear();
 
     }
+
+
 }

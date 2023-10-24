@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 public class PlayerActionTable {
 
 
-    public ObservableList<Player> player = PlayerEntryTable.players;
+    public ObservableList<Player> players = null;
 
     @FXML
     public void actionTables(TableView<Player> tableView) {
@@ -24,7 +24,12 @@ public class PlayerActionTable {
 
         tableView.getColumns().setAll(codeNameColumn, playerScoreColumn);
 
-        tableView.setItems(player);
+        tableView.setItems(players);
 
+    }
+
+    public void setPlayers(ObservableList<Player> p)
+    {
+        this.players = p;
     }
 }
