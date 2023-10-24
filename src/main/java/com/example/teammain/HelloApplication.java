@@ -14,6 +14,7 @@ import javafx.util.Duration;
 public class HelloApplication extends Application {
 
     static PlayerEntryController myControllerHandle;
+    static PlayerActionController playerActionHandle;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -35,6 +36,7 @@ public class HelloApplication extends Application {
 
                 FXMLLoader gameActionLoader = new FXMLLoader(HelloApplication.class.getResource("/PlayerActionDisplay.fxml"));
                 Scene gameActionScreen = new Scene(gameActionLoader.load());
+                playerActionHandle = (PlayerActionController)gameActionLoader.getController();
 //                stage.setScene(gameActionScreen);
 //                stage.setTitle("Game Action");
 
@@ -43,6 +45,9 @@ public class HelloApplication extends Application {
                     if (ke.getCode().equals(KeyCode.F5)) {
                         System.out.println("pressed F5"); //test to make sure press registers
                         //code for count down timer
+
+                        playerActionHandle.setParentController();
+
                         PauseTransition pause2 = new PauseTransition(Duration.seconds(3)); //pause to wait while timer
                         pause2.setOnFinished(event2 ->{
                             stage.setScene(gameActionScreen); //prove that transition works
