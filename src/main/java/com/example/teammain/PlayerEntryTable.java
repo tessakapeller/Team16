@@ -14,6 +14,7 @@ public class PlayerEntryTable {
     public void initTable(TableView<Player> tableView) {
         TableColumn<Player, String> idColumn = new TableColumn<>("ID");
         idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty()); // Updated line
+
         TableColumn<Player, String> firstNameColumn = new TableColumn<>("FirstName");
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty()); // Updated line
         TableColumn<Player, String> lastNameColumn = new TableColumn<>("LastName");

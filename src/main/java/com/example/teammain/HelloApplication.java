@@ -22,24 +22,23 @@ public class HelloApplication extends Application {
         stage.setTitle("Game Starting...");
         stage.show();
 
+        stage.show();
+
+
         PauseTransition pause = new PauseTransition(Duration.seconds(3));// set this to 3 when done testing
         pause.setOnFinished(event -> {
             // After 3 seconds, switch to PlayerEntry.fxml
             try
             {
-//                FXMLLoader playerEntryLoader = new FXMLLoader(HelloApplication.class.getResource("/PlayerEntry.fxml"));
-//                Scene playerEntryScene = new Scene(playerEntryLoader.load());
-//                myControllerHandle = (PlayerEntryController)playerEntryLoader.getController();
-//
-//                playerEntryScene.setOnKeyPressed((KeyEvent ke) -> { // Create a key event that execute when any key pressed from your keyboard
-//                    myControllerHandle.keyEventHandler(ke);
-//                });
-//                stage.setTitle("Hello!");
-//                stage.setScene(playerEntryScene);
-                FXMLLoader gameActionLoader = new FXMLLoader(HelloApplication.class.getResource("/PlayerActionDisplay.fxml"));
-                Scene gameActionScreen = new Scene(gameActionLoader.load());
-                stage.setScene(gameActionScreen);
-                stage.setTitle("Game Action");
+                FXMLLoader playerEntryLoader = new FXMLLoader(HelloApplication.class.getResource("/PlayerEntry.fxml"));
+                Scene playerEntryScene = new Scene(playerEntryLoader.load());
+                myControllerHandle = (PlayerEntryController)playerEntryLoader.getController();
+
+                playerEntryScene.setOnKeyPressed((KeyEvent ke) -> { // Create a key event that execute when any key pressed from your keyboard
+                    myControllerHandle.keyEventHandler(ke);
+                });
+                stage.setTitle("Hello!");
+                stage.setScene(playerEntryScene);
 
             } catch (IOException e)
             {
@@ -49,11 +48,11 @@ public class HelloApplication extends Application {
 
         pause.play();
 
-        //when button pressed
-//        FXMLLoader gameActionLoader = new FXMLLoader(HelloApplication.class.getResource("/PlayerActionDisplay.fxml"));
-//        Scene gameActionScreen = new Scene(gameActionLoader.load());
-//        stage.setScene(gameActionScreen);
-//        stage.setTitle("Game Action");
+        FXMLLoader gameActionLoader = new FXMLLoader(HelloApplication.class.getResource("/PlayerActionDisplay.fxml"));
+        Scene gameActionScreen = new Scene(gameActionLoader.load());
+        stage.setScene(gameActionScreen);
+        stage.setTitle("Game Action");
+
     }
 
     public static void main(String[] args) {

@@ -24,10 +24,13 @@ public class PlayerActionController {
     public static final PlayerActionTable redScore = new PlayerActionTable();
     public static final PlayerActionTable greenScore = new PlayerActionTable();
 
+    public static final PlayerActionTable currentEvents = new PlayerActionTable();
+
     public void initialize(){
 
         redScore.actionTables(redTV);
         greenScore.actionTables(greenTV);
+        currentEvents.actionTables(currentGameEvents);
 
     }
 
