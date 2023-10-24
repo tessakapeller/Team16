@@ -9,12 +9,27 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import javafx.util.Duration;
 
 public class HelloApplication extends Application {
 
     static PlayerEntryController myControllerHandle;
     static PlayerActionController playerActionHandle;
+
+    synchronized void Countdown() {
+        int i = 5;
+        while(i != -1) {
+            System.out.println("CountDown is.." + i);
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (Exception ex) {
+                System.out.println(ex.toString());
+            }
+            i--;
+        }
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -46,12 +61,14 @@ public class HelloApplication extends Application {
                         System.out.println("pressed F5"); //test to make sure press registers
                         //code for count down timer
                         playerActionHandle.setParentController();
+                        Countdown();
 
                         PauseTransition pause2 = new PauseTransition(Duration.seconds(3)); //pause to wait while timer
                         pause2.setOnFinished(event2 ->{
                             stage.setScene(gameActionScreen); //prove that transition works
                         });
                         pause2.play();
+
                     }
                     else{
                         myControllerHandle.keyEventHandler(ke);
