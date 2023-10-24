@@ -11,19 +11,19 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff361f" height="712.0" layoutX="710.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="445.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#26bc15" height="712.0" layoutX="149.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="445.0" />
-      <TableView layoutX="167.0" layoutY="59.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="399.0">
+      <TableView fx:id="greenTV" layoutX="167.0" layoutY="59.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="399.0">
         <columns>
-          <TableColumn prefWidth="308.5556182861328" text="Green Team" />
-          <TableColumn minWidth="0.0" prefWidth="89.44439697265625" text="Score" />
+          <TableColumn fx:id="greenCodeName" prefWidth="308.5556182861328" text="Green Team" />
+          <TableColumn fx:id="greenScore" minWidth="0.0" prefWidth="89.44439697265625" text="Score" />
         </columns>
       </TableView>
-      <TableView layoutX="730.0" layoutY="61.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="403.0">
+      <TableView fx:id="redTV" layoutX="730.0" layoutY="61.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="403.0">
          <columns>
-            <TableColumn prefWidth="308.5556182861328" text="Red Team" />
-            <TableColumn minWidth="0.0" prefWidth="89.44439697265625" text="Score" />
+            <TableColumn fx:id="redCodeName" prefWidth="308.5556182861328" text="Red Team" />
+            <TableColumn fx:id="redScore" minWidth="0.0" prefWidth="89.44439697265625" text="Score" />
          </columns>
       </TableView>
-      <TableView layoutX="166.0" layoutY="341.0" prefHeight="380.0" prefWidth="966.0">
+      <TableView fx:id="currentGameEvents" layoutX="166.0" layoutY="341.0" prefHeight="380.0" prefWidth="966.0">
         <columns>
           <TableColumn prefWidth="965.0" text="Current Game Events" />
         </columns>
