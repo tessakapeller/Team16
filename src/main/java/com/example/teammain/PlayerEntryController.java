@@ -1,102 +1,166 @@
 package com.example.teammain;
 
-import com.example.teammain.DBUtils.DBMethods;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.example.teammain.sockets.SocketClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class PlayerEntryController {
-    private ObservableList<Player> players = FXCollections.observableArrayList();
-    //public
 
     @FXML
-    public void initTable(TableView<Player> tableView) {
-        TableColumn<Player, String> idColumn = new TableColumn<>("ID");
-        idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty()); // Updated line
-        TableColumn<Player, String> firstNameColumn = new TableColumn<>("FirstName");
-        firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty()); // Updated line
-        TableColumn<Player, String> lastNameColumn = new TableColumn<>("LastName");
-        lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty()); // Updated line
-        TableColumn<Player, String> codeNameColumn = new TableColumn<>("CodeName");
-        codeNameColumn.setCellValueFactory(cellData -> cellData.getValue().codeNameProperty()); // Updated line
-        idColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.1));
-        firstNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
-        lastNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
-        codeNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
-        tableView.getColumns().setAll(idColumn, firstNameColumn, lastNameColumn, codeNameColumn);
-        tableView.setItems(players);
+    private TextField playerIDField;
+
+    @FXML
+    public TextField firstNameField;
+
+    @FXML
+    public TextField lastNameField;
+
+    @FXML
+    public TextField codeNameField;
+
+    @FXML
+    public TextField equipCodeField;
+
+    @FXML
+    private TableView<Player> redTeamTableView;
+
+    @FXML
+    private TableView<Player> blueTeamTableView;
+
+    public static final PlayerEntryTable redTeamController = new PlayerEntryTable();
+    public static final PlayerEntryTable blueTeamController = new PlayerEntryTable();
+
+    public void initialize() {
+        firstNameField.setVisible(false);
+        lastNameField.setVisible(false);
+        codeNameField.setVisible(false);
+        equipCodeField.setVisible(false);
+        redTeamController.initTable(redTeamTableView);
+        blueTeamController.initTable(blueTeamTableView);
     }
 
-//    @FXML
-//    public void handleAddPlayer(ActionEvent event) {
-//        String playerName = playerNameField.getText().trim();
-//        if (!playerName.isEmpty()) {
-//            addPlayer(playerName);
-//            playerNameField.clear();
-////            playerTableView.refresh();
-//        }
-//    }
+    @FXML
+    private ChoiceBox<String> teamChoiceBox;
 
-    public boolean addPlayer(String id) {
+    @FXML
+    private Button resetButton;
 
-        //check the database
-        Player player = DBMethods.find(id);
-        System.out.println(player.firstNameProperty().getValue());
-        if(player.firstNameProperty().getValue() != "")
+    @FXML
+    public void handleAddPlayer(ActionEvent event) {
+        String team = teamChoiceBox.getValue();
+        String playerID = playerIDField.getText();
+        boolean setIDVisible = false;
+        if (!playerID.isEmpty()) {
+            if ("Blue".equals(team)) {
+                setIDVisible = blueTeamController.addPlayer(playerID);
+            } else if ("Red".equals(team)) {
+                setIDVisible = redTeamController.addPlayer(playerID);
+            }
+            if (setIDVisible) {
+                playerIDField.setVisible(false);
+                firstNameField.setVisible(true);
+            } else {
+                equipCodeField.setVisible(true);
+            }
+        }
+        playerIDField.clear();
+    }
+
+    public void handleAddFirstName(ActionEvent event) {
+        String team = teamChoiceBox.getValue();
+        String firstName = firstNameField.getText();
+        if (!firstName.isEmpty()) {
+            if ("Blue".equals(team)) {
+                blueTeamController.updateFirstName(firstName);
+            } else if ("Red".equals(team)) {
+                redTeamController.updateFirstName(firstName);
+            }
+            firstNameField.setVisible(false);
+            lastNameField.setVisible(true);
+        }
+        firstNameField.clear();
+    }
+
+    public void handleAddLastName(ActionEvent event)
+    {
+        String team = teamChoiceBox.getValue();
+        String lastname = lastNameField.getText();
+        if (!lastname.isEmpty()) {
+            if ("Blue".equals(team)) {
+                blueTeamController.updateLastName(lastname);
+            } else if ("Red".equals(team)) {
+                redTeamController.updateLastName(lastname);
+            }
+            lastNameField.setVisible(false);
+            codeNameField.setVisible(true);
+        }
+        lastNameField.clear();
+    }
+    public void handleAddCodeName(ActionEvent event)
+    {
+        String team = teamChoiceBox.getValue();
+        String codename = codeNameField.getText();
+        if (!codename.isEmpty()) {
+            if ("Blue".equals(team)) {
+                blueTeamController.updateCodeName(codename);
+            } else if ("Red".equals(team)) {
+                redTeamController.updateCodeName(codename);
+            }
+            codeNameField.setVisible(false);
+            equipCodeField.setVisible(true);
+        }
+        codeNameField.clear();
+    }
+    public void handleAddEquipCode(ActionEvent event)
+    {
+        String team = teamChoiceBox.getValue();
+        String equipmentCode = equipCodeField.getText();
+        if (!equipmentCode.isEmpty()) {
+            if ("Blue".equals(team)) {
+                blueTeamController.updateEquipmentCode(equipmentCode);
+            } else if ("Red".equals(team)) {
+                redTeamController.updateEquipmentCode(equipmentCode);
+            }
+            equipCodeField.setVisible(false);
+            playerIDField.setVisible(true);
+            //will send equipment code to signal 7500 after output, signal isn't set up.
+            SocketClient.sendEquipmentCode(equipmentCode);
+        }
+        equipCodeField.clear();
+    }
+
+//    Handler for any type of key inputs
+    public void keyEventHandler(KeyEvent ke)
+    {
+        if (ke.getCode().equals(KeyCode.F12))
         {
-            players.add(new Player(id, player.firstNameProperty().getValue(), player.lastNameProperty().getValue(), player.codeNameProperty().getValue()));
-            return false;
-        }
-        else {
-            players.add(new Player(id));
-            return true;
+            //System.out.println("pressed F12");
+            this.resetEntry();
         }
     }
 
-    public void updateFirstName(String firstName)
-    {
-        Player temp = players.get(players.size() - 1);
-        temp.setFirstName(firstName);
-        players.set((players.size() - 1), temp);
+    public void resetEntry(){
+        this.handleResetButton(new ActionEvent());
     }
+    @FXML
+    private void handleResetButton(ActionEvent event) {
+        redTeamController.getPlayers().clear();
+        blueTeamController.getPlayers().clear();
+        teamChoiceBox.setValue("Blue"); // if you want to reset it to a default team
+        playerIDField.setVisible(true);
+        firstNameField.setVisible(false);
+        lastNameField.setVisible(false);
+        codeNameField.setVisible(false);
+        playerIDField.clear();
+        firstNameField.clear();
+        lastNameField.clear();
+        codeNameField.clear();
 
-    public void updateLastName(String lastname)
-    {
-        Player temp = players.get(players.size() - 1);
-        temp.setLastName(lastname);
-        players.set((players.size() - 1), temp);
     }
-
-    public void updateCodeName(String codename)
-    {
-        Player temp = players.get(players.size() - 1);
-        temp.setCodeName(codename);
-        players.set((players.size() - 1), temp);
-        DBMethods.insert(temp);
-    }
-
-    public void updateEquipmentCode(String codename)
-    {
-        Player temp = players.get(players.size() - 1);
-        temp.setEqupimentCode(codename);
-        players.set((players.size() - 1), temp);
-    }
-
-    public ObservableList<Player> getPlayers() {
-        return players;
-    }
-
-    public void resetPlayers(){
-        players = FXCollections.observableArrayList();
-    }
-
-
 }
-

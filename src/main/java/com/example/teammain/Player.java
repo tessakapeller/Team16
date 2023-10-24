@@ -7,6 +7,7 @@ public class Player {
     private SimpleStringProperty firstName;
     private SimpleStringProperty lastName;
     private SimpleStringProperty codeName;
+    private SimpleStringProperty score;
     public int equpimentCode;
 
     public Player(String id, String firstname, String lastname, String codename) {
@@ -14,6 +15,7 @@ public class Player {
         this.firstName = new SimpleStringProperty(firstname);
         this.lastName = new SimpleStringProperty(lastname);
         this.codeName = new SimpleStringProperty(codename);
+        this.score = new SimpleStringProperty("1000");
         this.equpimentCode = -1;
     }
 
@@ -22,6 +24,7 @@ public class Player {
         this.firstName = new SimpleStringProperty("");
         this.lastName = new SimpleStringProperty("");
         this.codeName = new SimpleStringProperty("");
+        this.score = new SimpleStringProperty("1000");
         this.equpimentCode = -1;
     }
 
@@ -39,6 +42,10 @@ public class Player {
 
     public SimpleStringProperty codeNameProperty() {
         return codeName;
+    }
+
+    public SimpleStringProperty scoreProperty() {
+        return score;
     }
 
     public void setFirstName(String firstname) {
