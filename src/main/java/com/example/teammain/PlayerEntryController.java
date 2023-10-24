@@ -43,7 +43,6 @@ public class PlayerEntryController {
         equipCodeField.setVisible(false);
         redTeamController.initTable(redTeamTableView);
         blueTeamController.initTable(blueTeamTableView);
-
     }
 
     @FXML

@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 public class PlayerEntryTable {
-    private ObservableList<Player> players = FXCollections.observableArrayList();
+    public static ObservableList<Player> players = FXCollections.observableArrayList();
     //public
 
     @FXML

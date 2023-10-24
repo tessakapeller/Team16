@@ -4,6 +4,7 @@ import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -22,8 +23,6 @@ public class HelloApplication extends Application {
         stage.setTitle("Game Starting...");
         stage.show();
 
-        stage.show();
-
 
         PauseTransition pause = new PauseTransition(Duration.seconds(3));// set this to 3 when done testing
         pause.setOnFinished(event -> {
@@ -34,8 +33,25 @@ public class HelloApplication extends Application {
                 Scene playerEntryScene = new Scene(playerEntryLoader.load());
                 myControllerHandle = (PlayerEntryController)playerEntryLoader.getController();
 
+                FXMLLoader gameActionLoader = new FXMLLoader(HelloApplication.class.getResource("/PlayerActionDisplay.fxml"));
+                Scene gameActionScreen = new Scene(gameActionLoader.load());
+//                stage.setScene(gameActionScreen);
+//                stage.setTitle("Game Action");
+
+
                 playerEntryScene.setOnKeyPressed((KeyEvent ke) -> { // Create a key event that execute when any key pressed from your keyboard
-                    myControllerHandle.keyEventHandler(ke);
+                    if (ke.getCode().equals(KeyCode.F5)) {
+                        System.out.println("pressed F5"); //test to make sure press registers
+                        //code for count down timer
+                        PauseTransition pause2 = new PauseTransition(Duration.seconds(3)); //pause to wait while timer
+                        pause2.setOnFinished(event2 ->{
+                            stage.setScene(gameActionScreen); //prove that transition works
+                        });
+                        pause2.play();
+                    }
+                    else{
+                        myControllerHandle.keyEventHandler(ke);
+                    }
                 });
                 stage.setTitle("Hello!");
                 stage.setScene(playerEntryScene);
@@ -48,10 +64,6 @@ public class HelloApplication extends Application {
 
         pause.play();
 
-        FXMLLoader gameActionLoader = new FXMLLoader(HelloApplication.class.getResource("/PlayerActionDisplay.fxml"));
-        Scene gameActionScreen = new Scene(gameActionLoader.load());
-        stage.setScene(gameActionScreen);
-        stage.setTitle("Game Action");
 
     }
 

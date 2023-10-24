@@ -30,7 +30,7 @@ public class PlayerActionController {
 
         redScore.actionTables(redTV);
         greenScore.actionTables(greenTV);
-        currentEvents.actionTables(currentGameEvents);
+        //currentEvents.actionTables(currentGameEvents);
 
     }
 
