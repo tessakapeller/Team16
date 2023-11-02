@@ -55,7 +55,7 @@
                 <Font name="System Italic" size="45.0" />
             </font>
         </Text>
-        <Text fill="WHITE" layoutX="1062.0" layoutY="717.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="158.0">
+        <Text fx:id="CountDown" fill="WHITE" layoutX="1062.0" layoutY="717.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="158.0">
             <font>
                 <Font name="System Italic" size="45.0" />
             </font>

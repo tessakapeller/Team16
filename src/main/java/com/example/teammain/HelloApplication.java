@@ -2,6 +2,7 @@ package com.example.teammain;
 
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -9,12 +10,34 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+
 import javafx.util.Duration;
 
 public class HelloApplication extends Application {
 
     static PlayerEntryController myControllerHandle;
     static PlayerActionController playerActionHandle;
+
+    synchronized void Countdown() {
+            Timer timer = new Timer();
+        final int[] i = {10};
+            timer.scheduleAtFixedRate(new TimerTask() {
+                public void run() {
+                    if(i[0] > 0)
+                    {
+                        Platform.setImplicitExit(false);
+                        Platform.runLater(() -> myControllerHandle.CountDown.setText("Time til game: "+ i[0]));
+                        System.out.println(i[0]);
+                        i[0]--;
+                    }
+                    else
+                        timer.cancel();
+                }
+            }, 1000,1000);
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -45,14 +68,15 @@ public class HelloApplication extends Application {
                     if (ke.getCode().equals(KeyCode.F5)) {
                         System.out.println("pressed F5"); //test to make sure press registers
                         //code for count down timer
-
                         playerActionHandle.setParentController();
+                        Countdown();
 
-                        PauseTransition pause2 = new PauseTransition(Duration.seconds(3)); //pause to wait while timer
+                        PauseTransition pause2 = new PauseTransition(Duration.seconds(11)); //pause to wait while timer
                         pause2.setOnFinished(event2 ->{
                             stage.setScene(gameActionScreen); //prove that transition works
                         });
                         pause2.play();
+
                     }
                     else{
                         myControllerHandle.keyEventHandler(ke);

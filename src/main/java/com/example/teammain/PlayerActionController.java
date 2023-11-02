@@ -21,6 +21,8 @@ public class PlayerActionController {
     @FXML
     private TableView<Player> currentGameEvents;
 
+    public static PlayerEntryController parentController = null;
+
     public static final PlayerActionTable redScore = new PlayerActionTable();
     public static final PlayerActionTable greenScore = new PlayerActionTable();
 
@@ -31,13 +33,10 @@ public class PlayerActionController {
         greenScore.setPlayers(PlayerEntryController.blueTeamController.getPlayers());
         redScore.setPlayers(PlayerEntryController.redTeamController.getPlayers());
     }
-
     public void initialize(){
-
         setParentController();
-        greenScore.actionTables(greenTV);
         redScore.actionTables(redTV);
-
+        greenScore.actionTables(greenTV);
         //currentEvents.actionTables(currentGameEvents);
 
     }

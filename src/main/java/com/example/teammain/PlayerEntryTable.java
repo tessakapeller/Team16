@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 public class PlayerEntryTable {
-
     public ObservableList<Player> players = FXCollections.observableArrayList();
     //public
 
@@ -15,6 +14,7 @@ public class PlayerEntryTable {
     public void initTable(TableView<Player> tableView) {
         TableColumn<Player, String> idColumn = new TableColumn<>("ID");
         idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty()); // Updated line
+
         TableColumn<Player, String> firstNameColumn = new TableColumn<>("FirstName");
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty()); // Updated line
         TableColumn<Player, String> lastNameColumn = new TableColumn<>("LastName");
@@ -84,7 +84,9 @@ public class PlayerEntryTable {
         players.set((players.size() - 1), temp);
     }
 
-    public ObservableList<Player> getPlayers() {return players;}
+    public ObservableList<Player> getPlayers() {
+        return players;
+    }
 
     public void resetPlayers(){
         players = FXCollections.observableArrayList();
