@@ -8,13 +8,14 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
+import java.io.File;
 import java.io.IOException;
+import javax.sound.sampled.*;
+import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
-
 import javafx.util.Duration;
+import java.io.File;
 
 public class HelloApplication extends Application {
 
@@ -41,6 +42,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
         FXMLLoader gameStartLoader = new FXMLLoader(HelloApplication.class.getResource("/gamestart.fxml"));
         Scene gameStartScene = new Scene(gameStartLoader.load());
         stage.setScene(gameStartScene);
