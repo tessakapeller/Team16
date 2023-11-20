@@ -10,7 +10,6 @@ public class PlayerActionTable {
 
     public ObservableList<Player> players = null;
 
-
     @FXML
     public void actionTables(TableView<Player> tableView) {
 
@@ -24,7 +23,6 @@ public class PlayerActionTable {
         playerScoreColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
 
         tableView.getColumns().setAll(codeNameColumn, playerScoreColumn);
-
 
         tableView.setItems(players);
 

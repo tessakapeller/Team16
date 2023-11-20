@@ -9,6 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Text;
 
 public class PlayerEntryController {
 
@@ -17,6 +18,9 @@ public class PlayerEntryController {
 
     @FXML
     public TextField firstNameField;
+
+    @FXML
+    public Text CountDown;
 
     @FXML
     public TextField lastNameField;
@@ -35,6 +39,8 @@ public class PlayerEntryController {
 
     public static PlayerEntryTable redTeamController = new PlayerEntryTable();
     public static PlayerEntryTable blueTeamController = new PlayerEntryTable();
+
+
 
     public void initialize() {
         firstNameField.setVisible(false);
@@ -163,4 +169,6 @@ public class PlayerEntryController {
         codeNameField.clear();
 
     }
+
+
 }

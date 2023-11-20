@@ -139,7 +139,8 @@ public class MainController {
 //    Handler for any type of key inputs
     public void keyEventHandler(KeyEvent ke)
     {
-        if (ke.getCode().equals(KeyCode.F12)) {
+        if (ke.getCode().equals(KeyCode.F12))
+        {
             //System.out.println("pressed F12");
             this.resetEntry();
         }
