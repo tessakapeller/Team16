@@ -9,6 +9,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PlayerActionController {
 
@@ -33,6 +35,8 @@ public class PlayerActionController {
         greenScore.setPlayers(PlayerEntryController.blueTeamController.getPlayers());
         redScore.setPlayers(PlayerEntryController.redTeamController.getPlayers());
     }
+
+
     public void initialize(){
         setParentController();
         redScore.actionTables(redTV);
