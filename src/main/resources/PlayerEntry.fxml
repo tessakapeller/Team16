@@ -30,7 +30,7 @@
                 <Font name="System Bold Italic" size="38.0" />
             </font>
         </Text>
-        <Text fill="WHITE" layoutX="113.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F5 To Start" underline="true" wrappingWidth="189.13671875">
+        <Text fill="WHITE" layoutX="14.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F5 To Start" underline="true" wrappingWidth="189.13671875">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -45,17 +45,12 @@
                 <Font name="System Bold Italic" size="69.0" />
             </font>
         </Text>
-        <Text fill="WHITE" layoutX="231.0" layoutY="707.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F12 Clear Game" underline="true" wrappingWidth="189.13671875">
+        <Text fill="WHITE" layoutX="14.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F12 Clear Game" underline="true" wrappingWidth="189.13671875">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Text>
-        <Text fill="WHITE" layoutX="686.0" layoutY="717.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Starts In ..." wrappingWidth="445.0">
-            <font>
-                <Font name="System Italic" size="45.0" />
-            </font>
-        </Text>
-        <Text fx:id="CountDown" fill="WHITE" layoutX="1062.0" layoutY="717.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="158.0">
+        <Text fx:id="CountDown" fill="WHITE" layoutX="14.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="109.33332061767578">
             <font>
                 <Font name="System Italic" size="45.0" />
             </font>
