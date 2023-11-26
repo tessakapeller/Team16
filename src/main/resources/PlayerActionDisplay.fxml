@@ -58,14 +58,24 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text id="GreenTotalScore" fill="WHITE" layoutX="596.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+      <Text id="GreenTotalScore" fx:id="GreenTotalScore" fill="WHITE" layoutX="596.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text id="RedTotalScore" fill="WHITE" layoutX="596.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+      <Text id="RedTotalScore" fx:id="RedTotalScore" fill="WHITE" layoutX="596.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
             <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="16.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:">
+         <font>
+            <Font name="System Bold Italic" size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="PlayActionTime" fill="WHITE" layoutX="16.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="System Italic" size="48.0" />
          </font>
       </Text>
    </children>
