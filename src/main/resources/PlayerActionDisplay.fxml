@@ -13,8 +13,8 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#26bc15" height="712.0" layoutX="149.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="445.0" />
       <TableView fx:id="greenTV" layoutX="167.0" layoutY="59.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="399.0">
         <columns>
-          <TableColumn fx:id="greenCodeName" prefWidth="308.5556182861328" text="Green Team" />
-          <TableColumn fx:id="greenS" minWidth="0.0" prefWidth="89.44439697265625" text="Score" />
+          <TableColumn fx:id="greenCodeName" prefWidth="235.6666259765625" text="Green Team" />
+          <TableColumn fx:id="greenS" minWidth="0.0" prefWidth="90.0" text="Score" />
         </columns>
       </TableView>
       <TableView fx:id="redTV" layoutX="730.0" layoutY="61.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="403.0">
@@ -38,14 +38,34 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="616.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="V">
+      <Text fill="WHITE" layoutX="617.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="V">
          <font>
             <Font name="System Bold Italic" size="69.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="643.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="S">
+      <Text fill="WHITE" layoutX="643.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="S">
          <font>
             <Font name="System Bold Italic" size="69.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="596.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Green Score:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="596.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Score">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text id="GreenTotalScore" fill="WHITE" layoutX="596.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text id="RedTotalScore" fill="WHITE" layoutX="596.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Text>
    </children>

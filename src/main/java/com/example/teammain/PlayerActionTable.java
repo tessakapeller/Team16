@@ -19,10 +19,14 @@ public class PlayerActionTable {
         TableColumn<Player, String> playerScoreColumn = new TableColumn<>("PlayerScore");
         playerScoreColumn.setCellValueFactory(cellData -> cellData.getValue().scoreProperty());  //cellData.getValue().codeNameProperty()); // Updated line
 
-        codeNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.7));
-        playerScoreColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
+        TableColumn<Player, String> stylizedB = new TableColumn<>("B");
+        stylizedB.setCellValueFactory(cellData -> cellData.getValue().stylizedBProperty());  //cellData.getValue().codeNameProperty()); // Updated line
 
-        tableView.getColumns().setAll(codeNameColumn, playerScoreColumn);
+        codeNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.6));
+        playerScoreColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
+        stylizedB.prefWidthProperty().bind(tableView.widthProperty().multiply(0.1));
+
+        tableView.getColumns().setAll(codeNameColumn, playerScoreColumn, stylizedB);
 
         tableView.setItems(players);
 
