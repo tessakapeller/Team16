@@ -15,7 +15,6 @@ import java.awt.event.MouseEvent;
 import com.example.teammain.sockets.UDPSocket;
 
 public class PlayerActionController {
-
     @FXML
     private TableView<Player> greenTV;
 
@@ -82,4 +81,7 @@ public class PlayerActionController {
 
     }
 
+    /*
+
+     */
 }

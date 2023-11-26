@@ -22,11 +22,12 @@ public class PlayerActionTable {
         TableColumn<Player, String> stylizedB = new TableColumn<>("B");
         stylizedB.setCellValueFactory(cellData -> cellData.getValue().stylizedBProperty());  //cellData.getValue().codeNameProperty()); // Updated line
 
+        stylizedB.prefWidthProperty().bind(tableView.widthProperty().multiply(0.1));
         codeNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.6));
         playerScoreColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
-        stylizedB.prefWidthProperty().bind(tableView.widthProperty().multiply(0.1));
 
-        tableView.getColumns().setAll(codeNameColumn, playerScoreColumn, stylizedB);
+
+        tableView.getColumns().setAll(stylizedB, codeNameColumn, playerScoreColumn);
 
         tableView.setItems(players);
 
