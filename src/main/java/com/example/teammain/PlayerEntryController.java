@@ -72,6 +72,7 @@ public class PlayerEntryController {
                 playerIDField.setVisible(false);
                 firstNameField.setVisible(true);
             } else {
+                playerIDField.setVisible(false);
                 equipCodeField.setVisible(true);
             }
         }

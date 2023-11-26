@@ -8,6 +8,9 @@ public class Player {
     private SimpleStringProperty lastName;
     private SimpleStringProperty codeName;
     private SimpleStringProperty score;
+
+    private SimpleStringProperty stylizedB;
+
     public int equpimentCode;
 
     public Player(String id, String firstname, String lastname, String codename) {
@@ -16,6 +19,7 @@ public class Player {
         this.lastName = new SimpleStringProperty(lastname);
         this.codeName = new SimpleStringProperty(codename);
         this.score = new SimpleStringProperty("1000");
+        this.stylizedB = new SimpleStringProperty("");
         this.equpimentCode = -1;
     }
 
@@ -25,6 +29,7 @@ public class Player {
         this.lastName = new SimpleStringProperty("");
         this.codeName = new SimpleStringProperty("");
         this.score = new SimpleStringProperty("1000");
+        this.stylizedB = new SimpleStringProperty("");
         this.equpimentCode = -1;
     }
 
@@ -48,6 +53,8 @@ public class Player {
         return score;
     }
 
+    public SimpleStringProperty stylizedBProperty(){return stylizedB; }
+
     public void setFirstName(String firstname) {
         this.firstName = new SimpleStringProperty(firstname);
     }
@@ -65,6 +72,11 @@ public class Player {
     public void setEqupimentCode(String equpimentcode) {
 
         this.equpimentCode = Integer.parseInt(equpimentcode);
+    }
+
+    public void setStylizedB()
+    {
+        this.stylizedB = new SimpleStringProperty("B");
     }
 
 
