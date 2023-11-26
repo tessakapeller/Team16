@@ -21,11 +21,14 @@ public class PlayerEntryTable {
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty()); // Updated line
         TableColumn<Player, String> codeNameColumn = new TableColumn<>("CodeName");
         codeNameColumn.setCellValueFactory(cellData -> cellData.getValue().codeNameProperty()); // Updated line
+        TableColumn<Player, String> equipmentIdColumn = new TableColumn<>("equipment id");
+        equipmentIdColumn.setCellValueFactory(cellData -> cellData.getValue().equipmentCodeProperty()); // Updated line
         idColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.1));
-        firstNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
-        lastNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
-        codeNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.3));
-        tableView.getColumns().setAll(idColumn, firstNameColumn, lastNameColumn, codeNameColumn);
+        firstNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.25));
+        lastNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.25));
+        codeNameColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.25));
+        equipmentIdColumn.prefWidthProperty().bind(tableView.widthProperty().multiply(0.15));
+        tableView.getColumns().setAll(idColumn, firstNameColumn, lastNameColumn, codeNameColumn, equipmentIdColumn);
         tableView.setItems(players);
     }
 

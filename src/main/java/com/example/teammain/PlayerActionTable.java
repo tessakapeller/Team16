@@ -32,4 +32,21 @@ public class PlayerActionTable {
     {
         this.players = p;
     }
+
+    public ObservableList<Player> getPlayers() {
+        return players;
+    }
+
+    public boolean isPlayerExist(int id) {
+        return players.stream().anyMatch(player -> player.equipmentCodeProperty().get().equals(String.valueOf(id)));
+    }
+
+    public Player getPlayer(int id) {
+        return players.stream().filter(player -> player.equipmentCodeProperty().get().equals(String.valueOf(id))).findFirst().get();
+    }
+
+    public void addScore(int id, int score) {
+        Player player = getPlayer(id);
+        player.scoreProperty().set(String.valueOf(Integer.parseInt(player.scoreProperty().get()) + score));
+    }
 }

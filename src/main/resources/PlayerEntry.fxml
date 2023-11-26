@@ -56,10 +56,10 @@
             </font>
         </Text>
       <TextField fx:id="playerIDField" layoutX="601.0" layoutY="159.0" onAction="#handleAddPlayer" promptText="Enter your two-digit ID" />
-      <TableView fx:id="blueTeamTableView" layoutX="161.0" layoutY="142.0" prefHeight="484.0" prefWidth="409.0">
+      <TableView fx:id="greenTeamTableView" layoutX="161.0" layoutY="142.0" prefHeight="484.0" prefWidth="409.0">
         <columns>
-          <TableColumn fx:id="blueIdColumn" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="blueNameColumn" minWidth="100.0" prefWidth="333.0" text="Name" />
+          <TableColumn fx:id="greenIdColumn" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="greenNameColumn" minWidth="100.0" prefWidth="333.0" text="Name" />
         </columns>
       </TableView>
       <TableView fx:id="redTeamTableView" layoutX="776.0" layoutY="134.0" prefHeight="484.0" prefWidth="409.0">
@@ -68,10 +68,10 @@
             <TableColumn fx:id="redNameColumn" minWidth="100.0" prefWidth="333.0" text="Name" />
          </columns>
       </TableView>
-      <ChoiceBox fx:id="teamChoiceBox" layoutX="600.0" layoutY="127.0" prefWidth="150.0" value="Blue">
+      <ChoiceBox fx:id="teamChoiceBox" layoutX="600.0" layoutY="127.0" prefWidth="150.0" value="Green">
         <items>
             <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Blue" />
+                <String fx:value="Green" />
                 <String fx:value="Red" />
             </FXCollections>
         </items>
