@@ -28,16 +28,6 @@
           <TableColumn prefWidth="965.0" text="Current Game Events" />
         </columns>
       </TableView>
-      <Text fill="WHITE" layoutX="172.0" layoutY="775.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F12 Clear Game" underline="true" wrappingWidth="189.13671875">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="73.0" layoutY="774.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F5 To Start" underline="true" wrappingWidth="111.35893249511719">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
       <Text fill="WHITE" layoutX="617.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="V">
          <font>
             <Font name="System Bold Italic" size="69.0" />
@@ -76,6 +66,11 @@
       <Text fx:id="PlayActionTime" fill="WHITE" layoutX="16.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
             <Font name="System Italic" size="48.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="8.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="After Game is over, Press F5 key to return to Player Entry Screen." underline="true" wrappingWidth="125.109375">
+         <font>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Text>
    </children>
