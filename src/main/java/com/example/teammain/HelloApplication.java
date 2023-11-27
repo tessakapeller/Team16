@@ -29,7 +29,7 @@ public class HelloApplication extends Application {
     static PlayerEntryController myControllerHandle;
     static PlayerActionController playerActionHandle;
 
-    public static final int GAMETIME = 10000; // 6 minutes
+    public static final int GAMETIME = 360000; // 6 minutes
     public static boolean RUNNING = false;
 
     synchronized void StartCountdown() {
