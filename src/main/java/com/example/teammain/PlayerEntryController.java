@@ -1,6 +1,5 @@
 package com.example.teammain;
 
-import com.example.teammain.sockets.SocketClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -25,6 +24,7 @@ public class PlayerEntryController {
     @FXML
     public TextField lastNameField;
 
+
     @FXML
     public TextField codeNameField;
 
@@ -35,10 +35,10 @@ public class PlayerEntryController {
     private TableView<Player> redTeamTableView;
 
     @FXML
-    private TableView<Player> blueTeamTableView;
+    private TableView<Player> greenTeamTableView;
 
     public static PlayerEntryTable redTeamController = new PlayerEntryTable();
-    public static PlayerEntryTable blueTeamController = new PlayerEntryTable();
+    public static PlayerEntryTable greenTeamController = new PlayerEntryTable();
 
 
 
@@ -48,7 +48,7 @@ public class PlayerEntryController {
         codeNameField.setVisible(false);
         equipCodeField.setVisible(false);
         redTeamController.initTable(redTeamTableView);
-        blueTeamController.initTable(blueTeamTableView);
+        greenTeamController.initTable(greenTeamTableView);
     }
 
     @FXML
@@ -63,8 +63,8 @@ public class PlayerEntryController {
         String playerID = playerIDField.getText();
         boolean setIDVisible = false;
         if (!playerID.isEmpty()) {
-            if ("Blue".equals(team)) {
-                setIDVisible = blueTeamController.addPlayer(playerID);
+            if ("Green".equals(team)) {
+                setIDVisible = greenTeamController.addPlayer(playerID);
             } else if ("Red".equals(team)) {
                 setIDVisible = redTeamController.addPlayer(playerID);
             }
@@ -83,8 +83,8 @@ public class PlayerEntryController {
         String team = teamChoiceBox.getValue();
         String firstName = firstNameField.getText();
         if (!firstName.isEmpty()) {
-            if ("Blue".equals(team)) {
-                blueTeamController.updateFirstName(firstName);
+            if ("Green".equals(team)) {
+                greenTeamController.updateFirstName(firstName);
             } else if ("Red".equals(team)) {
                 redTeamController.updateFirstName(firstName);
             }
@@ -99,8 +99,8 @@ public class PlayerEntryController {
         String team = teamChoiceBox.getValue();
         String lastname = lastNameField.getText();
         if (!lastname.isEmpty()) {
-            if ("Blue".equals(team)) {
-                blueTeamController.updateLastName(lastname);
+            if ("Green".equals(team)) {
+                greenTeamController.updateLastName(lastname);
             } else if ("Red".equals(team)) {
                 redTeamController.updateLastName(lastname);
             }
@@ -114,8 +114,8 @@ public class PlayerEntryController {
         String team = teamChoiceBox.getValue();
         String codename = codeNameField.getText();
         if (!codename.isEmpty()) {
-            if ("Blue".equals(team)) {
-                blueTeamController.updateCodeName(codename);
+            if ("Green".equals(team)) {
+                greenTeamController.updateCodeName(codename);
             } else if ("Red".equals(team)) {
                 redTeamController.updateCodeName(codename);
             }
@@ -129,15 +129,15 @@ public class PlayerEntryController {
         String team = teamChoiceBox.getValue();
         String equipmentCode = equipCodeField.getText();
         if (!equipmentCode.isEmpty()) {
-            if ("Blue".equals(team)) {
-                blueTeamController.updateEquipmentCode(equipmentCode);
+            if ("Green".equals(team)) {
+                greenTeamController.updateEquipmentCode(equipmentCode);
             } else if ("Red".equals(team)) {
                 redTeamController.updateEquipmentCode(equipmentCode);
             }
             equipCodeField.setVisible(false);
             playerIDField.setVisible(true);
             //will send equipment code to signal 7500 after output, signal isn't set up.
-            SocketClient.sendEquipmentCode(equipmentCode);
+//            SocketClient.sendEquipmentCode(equipmentCode);
         }
         equipCodeField.clear();
     }
@@ -158,8 +158,8 @@ public class PlayerEntryController {
     @FXML
     private void handleResetButton(ActionEvent event) {
         redTeamController.getPlayers().clear();
-        blueTeamController.getPlayers().clear();
-        teamChoiceBox.setValue("Blue"); // if you want to reset it to a default team
+        greenTeamController.getPlayers().clear();
+        teamChoiceBox.setValue("Green"); // if you want to reset it to a default team
         playerIDField.setVisible(true);
         firstNameField.setVisible(false);
         lastNameField.setVisible(false);

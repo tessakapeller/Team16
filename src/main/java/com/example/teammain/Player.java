@@ -11,16 +11,16 @@ public class Player {
 
     private SimpleStringProperty stylizedB;
 
-    public int equpimentCode;
+    public SimpleStringProperty equpimentCode;
 
     public Player(String id, String firstname, String lastname, String codename) {
         this.id = new SimpleStringProperty(id);
         this.firstName = new SimpleStringProperty(firstname);
         this.lastName = new SimpleStringProperty(lastname);
         this.codeName = new SimpleStringProperty(codename);
-        this.score = new SimpleStringProperty("1000");
+        this.score = new SimpleStringProperty("0");
+        this.equpimentCode = new SimpleStringProperty(id);
         this.stylizedB = new SimpleStringProperty("");
-        this.equpimentCode = -1;
     }
 
     public Player(String id) {
@@ -28,9 +28,9 @@ public class Player {
         this.firstName = new SimpleStringProperty("");
         this.lastName = new SimpleStringProperty("");
         this.codeName = new SimpleStringProperty("");
-        this.score = new SimpleStringProperty("1000");
+        this.score = new SimpleStringProperty("0");
         this.stylizedB = new SimpleStringProperty("");
-        this.equpimentCode = -1;
+        this.equpimentCode = new SimpleStringProperty(id);
     }
 
     public SimpleStringProperty idProperty() {
@@ -55,6 +55,10 @@ public class Player {
 
     public SimpleStringProperty stylizedBProperty(){return stylizedB; }
 
+    public SimpleStringProperty equipmentCodeProperty() {
+        return equpimentCode;
+    }
+
     public void setFirstName(String firstname) {
         this.firstName = new SimpleStringProperty(firstname);
     }
@@ -71,7 +75,7 @@ public class Player {
 
     public void setEqupimentCode(String equpimentcode) {
 
-        this.equpimentCode = Integer.parseInt(equpimentcode);
+        this.equpimentCode = new SimpleStringProperty(equpimentcode);
     }
 
     public void setStylizedB()
