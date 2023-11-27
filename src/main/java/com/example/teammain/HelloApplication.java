@@ -50,6 +50,24 @@ public class HelloApplication extends Application {
         RUNNING = true;
     }
 
+    synchronized void GameCountdown() {
+        Timer timer = new Timer();
+        final int[] i = { 360 };
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                if (i[0] > 0) {
+                    Platform.setImplicitExit(false);
+                    Platform.runLater(() -> playerActionHandle.PlayActionTime.setText("" + i[0] + ""));
+                    System.out.println(i[0]);
+                    i[0]--;
+                } else
+                    timer.cancel();
+            }
+        }, 1000, 1000);
+
+        RUNNING = true;
+    }
+
     public static void PlayMusic(String location, int thing) {
 
         try {
@@ -118,11 +136,13 @@ public class HelloApplication extends Application {
                         // code for count down timer
                         playerActionHandle.setParentController();
                         StartCountdown();
-                        PauseTransition pause2 = new PauseTransition(Duration.seconds(11)); // pause to wait while timer
+                        PauseTransition pause2 = new PauseTransition(Duration.seconds(10)); // pause to wait while timer
                         PauseTransition pause3 = new PauseTransition(Duration.seconds(360));
                         pause2.setOnFinished(event2 -> {
                             stage.setScene(gameActionScreen);
                             PlayMusic(filePath, 1);
+                            GameCountdown();
+
                             // prove that transition works
                         });
                         pause2.play();

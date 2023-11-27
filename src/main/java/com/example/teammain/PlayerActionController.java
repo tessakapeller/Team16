@@ -13,6 +13,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import com.example.teammain.sockets.UDPSocket;
+import javafx.scene.text.Text;
 
 public class PlayerActionController {
     @FXML
@@ -20,6 +21,9 @@ public class PlayerActionController {
 
     @FXML
     private TableView<Player> redTV;
+
+    @FXML
+    public Text PlayActionTime;
 
     @FXML
     private TableView<Integer> teamScore;
