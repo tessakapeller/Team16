@@ -18,7 +18,7 @@
   # Music will begin playing upon the Play Action Screen booting up. 
   # the Play Action Display will then show the team member's code names as well as their score and it will increment both individual scores and total team scores as they happen.
   # the action table will output the events that are happening in the virtual game.
-  # after the 6 minute (300 second) timer runs out, the user has the option to press F5 and return to the Player Entry Screen and start over.
+  # after the 6 minute (360 second) timer runs out, the user has the option to press F5 and return to the Player Entry Screen and start over.
 
   # 
 
