@@ -24,6 +24,7 @@ public class PlayerEntryController {
     @FXML
     public TextField lastNameField;
 
+
     @FXML
     public TextField codeNameField;
 

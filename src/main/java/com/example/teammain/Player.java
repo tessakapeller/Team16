@@ -18,7 +18,7 @@ public class Player {
         this.firstName = new SimpleStringProperty(firstname);
         this.lastName = new SimpleStringProperty(lastname);
         this.codeName = new SimpleStringProperty(codename);
-        this.score = new SimpleStringProperty("1000");
+        this.score = new SimpleStringProperty("0");
         this.equpimentCode = new SimpleStringProperty(id);
         this.stylizedB = new SimpleStringProperty("");
     }
@@ -28,7 +28,7 @@ public class Player {
         this.firstName = new SimpleStringProperty("");
         this.lastName = new SimpleStringProperty("");
         this.codeName = new SimpleStringProperty("");
-        this.score = new SimpleStringProperty("1000");
+        this.score = new SimpleStringProperty("0");
         this.stylizedB = new SimpleStringProperty("");
         this.equpimentCode = new SimpleStringProperty(id);
     }

@@ -28,36 +28,6 @@
           <TableColumn prefWidth="965.0" text="Current Game Events" />
         </columns>
       </TableView>
-      <Text fill="WHITE" layoutX="617.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="V">
-         <font>
-            <Font name="System Bold Italic" size="69.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="643.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="S">
-         <font>
-            <Font name="System Bold Italic" size="69.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="596.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Green Score:">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="596.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red Score">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
-      <Text id="GreenTotalScore" fx:id="GreenTotalScore" fill="WHITE" layoutX="596.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
-      <Text id="RedTotalScore" fx:id="RedTotalScore" fill="WHITE" layoutX="596.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
       <Text fill="WHITE" layoutX="16.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:">
          <font>
             <Font name="System Bold Italic" size="48.0" />
@@ -73,5 +43,11 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
+      <TableView fx:id="teamScore" layoutX="575.0" layoutY="145.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="146.0">
+         <columns>
+            <TableColumn fx:id="TotalScoreTable" prefWidth="73.0" text="Green" />
+            <TableColumn fx:id="greenS1" minWidth="0.0" prefWidth="70.0" text="Red" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

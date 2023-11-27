@@ -73,7 +73,13 @@ public class UDPSocket implements AutoCloseable, Runnable {
 
                 String shooterTeam = PlayerActionController.greenScore.isPlayerExist(playerShootId) ? "Green"
                         : "Red";
-                String hitTeam = PlayerActionController.greenScore.isPlayerExist(playerHitId) ? "Green" : "Red";
+
+                String hitTeam;
+                if(playerHitId == 53 || playerHitId == 43){
+                     hitTeam = "Base";
+                }else {
+                     hitTeam = PlayerActionController.greenScore.isPlayerExist(playerHitId) ? "Green" : "Red";
+                }
 
                 if (shooterTeam.equals(hitTeam)) {
                     // shooter and hit player are in the same team; send myself code

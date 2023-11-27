@@ -87,6 +87,8 @@ public class PlayerEntryTable {
         players.set((players.size() - 1), temp);
     }
 
+
+
     public ObservableList<Player> getPlayers() {
         return players;
     }
