@@ -44,11 +44,11 @@ public class UDPSocket implements AutoCloseable, Runnable {
 
     public void run() {
         try {
-            Thread.sleep(11000);
-
+            Thread.sleep(HelloApplication.GAMETIME);
+//
             System.out.println(HelloApplication.GAMETIME);
 
-            System.out.println("Tried to access");
+//            System.out.println("Tried to access");
             // main game loop; will run for 6 minutes
             handleGameStart();
 

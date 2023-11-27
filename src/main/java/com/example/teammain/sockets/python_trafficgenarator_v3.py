@@ -44,7 +44,7 @@ print ('')
 while True:
     rand_number = random.random()
 
-    if rand_number < 0.8:
+    if rand_number < 0.6:
         redplayer = red1 if random.randint(1,2) == 1 else red2
         greenplayer = green1 if random.randint(1,2) == 1 else green2
 
@@ -55,7 +55,7 @@ while True:
             shooter = greenplayer
             hit = redplayer
 
-    elif rand_number < 0.95:
+    elif rand_number < 0.85:
         if random.randint(1,2) == 1:
             if random.randint(1,2) == 1:
                 shooter = red1
@@ -71,13 +71,15 @@ while True:
                 shooter = green2
                 hit = green1
     else:
+        # if random.randint(1,2) == 1:
         if random.randint(1,2) == 1:
-            if random.randint(1,2) == 1:
-                shooter = red1 if random.randint(1,2) == 1 else red2
-                hit = 43
-            else:
-                shooter = green1 if random.randint(1,2) == 1 else green2
-                hit = 53
+            shooter = red1 if random.randint(1,2) == 1 else red2
+            hit = 53
+        else:
+            shooter = green1 if random.randint(1,2) == 1 else green2
+            hit = 43
+
+    time.sleep(1)
 
     message = str(shooter) + ":" + str(hit)
 

@@ -22,7 +22,7 @@ public class PlayerActionController {
     private TableView<Player> redTV;
 
     @FXML
-    private TableView<Integer> teamScore;
+    private TableView<Scores> teamScore;
 
     @FXML
     private TableView<Events> currentGameEvents;
@@ -31,11 +31,8 @@ public class PlayerActionController {
 
     public static final PlayerActionTable redScore = new PlayerActionTable();
     public static final PlayerActionTable greenScore = new PlayerActionTable();
-
+    public static final ScoreTable scoretable = new ScoreTable();
     public static final PlayerActionEventsTable currentEvents = new PlayerActionEventsTable();
-
-    public int redTeamScore = 0;
-    public int greenTeamScore = 0;
 
 
     public void setParentController()
@@ -48,6 +45,7 @@ public class PlayerActionController {
         setParentController();
         redScore.actionTables(redTV);
         greenScore.actionTables(greenTV);
+        scoretable.actionTables(teamScore);
         currentEvents.actionTables(currentGameEvents);
     }
 
@@ -68,7 +66,7 @@ public class PlayerActionController {
                     System.out.println("DEBUG: Hit Red Base");
                     greenScore.addScore(playerShootId, 100);
                     String shooterName = shooter.codeNameProperty().getValue();
-                    currentEvents.addEvent(shooterName + " has hit red score.");
+                    currentEvents.addEvent(shooterName + " has hit red score base.");
                     greenScore.updateB(shooter);
                 }
             }
@@ -87,8 +85,9 @@ public class PlayerActionController {
                     System.out.println("DEBUG: already b redScore");
                 }else {
                     redScore.addScore(playerShootId, 100);
+
                     String shooterName = shooter.codeNameProperty().getValue();
-                    currentEvents.addEvent(shooterName + " has hit green score.");
+                    currentEvents.addEvent(shooterName + " has hit green score base.");
                     redScore.updateB(shooter);
                 }
             }
@@ -97,15 +96,19 @@ public class PlayerActionController {
             if (shooterTeam.equals("Green")) {
                 greenScore.addScore(playerShootId, 10);
                 Player temp = greenScore.getPlayer(playerShootId);
-                String event = temp.codeNameProperty().getValue() + "has shot a player";
+                String event = temp.codeNameProperty().getValue() + " has shot a player";
                 currentEvents.addEvent(event);
             } else {
                 redScore.addScore(playerShootId, 10);
                 Player temp = redScore.getPlayer(playerShootId);
-                String event = temp.codeNameProperty().getValue() + "has shot a player";
+                String event = temp.codeNameProperty().getValue() + " has shot a player";
                 currentEvents.addEvent(event);
             }
+
         }
+
+        scoretable.score.get(0).greenTotalScoreProperty().set(String.valueOf(greenScore.teamScore));
+        scoretable.score.get(0).redTotalScoreProperty().set(String.valueOf(redScore.teamScore));
 
     }
 }
