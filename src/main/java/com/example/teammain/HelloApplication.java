@@ -51,7 +51,7 @@ public class HelloApplication extends Application {
     {
 
         try{
-            File musicPath = new File("C:/Users/tmkap/IdeaProjects/Team16/src/main/resources/" + location);
+            File musicPath = new File("src/main/resources/" + location);
 
             if(musicPath.exists())
             {
@@ -146,6 +146,11 @@ public class HelloApplication extends Application {
                 });
                 stage.setTitle("Hello!");
                 stage.setScene(playerEntryScene);
+                gameActionScreen.setOnKeyPressed((KeyEvent key) -> {
+                    if (key.getCode().equals(KeyCode.F5)) {
+                        stage.setScene(playerEntryScene);
+                    }
+                });
 
             } catch (IOException e)
             {
