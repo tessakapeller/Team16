@@ -34,7 +34,7 @@ public class HelloApplication extends Application {
 
     synchronized void StartCountdown() {
         Timer timer = new Timer();
-        final int[] i = { 10 };
+        final int[] i = { 30 };
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 if (i[0] > 0) {
@@ -136,7 +136,7 @@ public class HelloApplication extends Application {
                         // code for count down timer
                         playerActionHandle.setParentController();
                         StartCountdown();
-                        PauseTransition pause2 = new PauseTransition(Duration.seconds(10)); // pause to wait while timer
+                        PauseTransition pause2 = new PauseTransition(Duration.seconds(30)); // pause to wait while timer
                         PauseTransition pause3 = new PauseTransition(Duration.seconds(360));
                         pause2.setOnFinished(event2 -> {
                             stage.setScene(gameActionScreen);

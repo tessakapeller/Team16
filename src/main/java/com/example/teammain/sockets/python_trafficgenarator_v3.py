@@ -79,7 +79,7 @@ while True:
             shooter = green1 if random.randint(1,2) == 1 else green2
             hit = 43
 
-    time.sleep(1)
+
 
     message = str(shooter) + ":" + str(hit)
 
