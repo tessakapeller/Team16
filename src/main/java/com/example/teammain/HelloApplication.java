@@ -32,7 +32,7 @@ public class HelloApplication extends Application {
     public static final int GAMETIME = 10000; // 6 minutes
     public static boolean RUNNING = false;
 
-    synchronized void Countdown() {
+    synchronized void StartCountdown() {
         Timer timer = new Timer();
         final int[] i = { 10 };
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -117,7 +117,7 @@ public class HelloApplication extends Application {
                         System.out.println("pressed F5"); // test to make sure press registers
                         // code for count down timer
                         playerActionHandle.setParentController();
-                        Countdown();
+                        StartCountdown();
                         PauseTransition pause2 = new PauseTransition(Duration.seconds(11)); // pause to wait while timer
                         PauseTransition pause3 = new PauseTransition(Duration.seconds(360));
                         pause2.setOnFinished(event2 -> {

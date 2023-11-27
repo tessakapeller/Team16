@@ -25,7 +25,7 @@ public class PlayerActionController {
     private TableView<Integer> teamScore;
 
     @FXML
-    private TableView<String> currentGameEvents;
+    private TableView<Events> currentGameEvents;
 
 //    public static PlayerEntryController parentController = null;
 
@@ -96,16 +96,16 @@ public class PlayerActionController {
             // shooter and hit player are in different teams; send hit player code
             if (shooterTeam.equals("Green")) {
                 greenScore.addScore(playerShootId, 10);
+                Player temp = greenScore.getPlayer(playerShootId);
+                String event = temp.codeNameProperty().getValue() + "has shot a player";
+                currentEvents.addEvent(event);
             } else {
                 redScore.addScore(playerShootId, 10);
+                Player temp = redScore.getPlayer(playerShootId);
+                String event = temp.codeNameProperty().getValue() + "has shot a player";
+                currentEvents.addEvent(event);
             }
         }
 
     }
-
-
-
-    /*
-
-     */
 }

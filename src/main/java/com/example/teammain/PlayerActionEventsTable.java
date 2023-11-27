@@ -1,5 +1,6 @@
 package com.example.teammain;
 
+import com.example.teammain.DBUtils.DBMethods;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,23 +9,20 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class PlayerActionEventsTable {
-    public ObservableList<String> events = FXCollections.observableArrayList();
+    public ObservableList<Events> events = FXCollections.observableArrayList();
 
     @FXML
-    public void actionTables(TableView<String> tableView) {
+    public void actionTables(TableView<Events> tableView) {
 
-        TableColumn<ObservableValue<String>, String> eventColumn = new TableColumn<>("Events");
-        eventColumn.setCellValueFactory(cellData -> cellData.getValue()); // Updated line
-
+        TableColumn<Events, String> event = new TableColumn<>("Event");
+        event.setCellValueFactory(cellData -> cellData.getValue().eventProperty()); // Updated line
+        event.prefWidthProperty().bind(tableView.widthProperty().multiply(1));
+        tableView.getColumns().setAll(event);
         tableView.setItems(events);
     }
 
     public void addEvent(String event) {
-        events.add(event);
-//        if(events.size() >= 11) {
-//            for(int i = 0; i < 10; i++) {
-//                events.set(i, events.get(i + 1));
-//            }
-//        }
+        Events newEvent = new Events(event);
+        events.add(newEvent);
     }
 }
